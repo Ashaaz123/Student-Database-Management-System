@@ -39,7 +39,3 @@ constraints_indexing.html ├── static/ │ └── style.css
 -   Aggregate Queries
 -   Constraints & Indexing
 -   Excel Export
-
-## Author
-
-Ashaaz Ahmed Khan A
