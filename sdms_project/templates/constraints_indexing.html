@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Constraints & Indexing</title>
+</head>
+<body>
+    <h1>Constraints & Indexing</h1>
+
+    <!-- Student Index -->
+    {% if student_index %}
+        <h2>Students Indexes</h2>
+        <table border="1">
+            <tr>
+                {% for col in student_index[0].keys() %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in student_index %}
+                <tr>
+                    {% for col in row.values() %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No student index data found.</p>
+    {% endif %}
+
+    <!-- Course Index -->
+    {% if course_index %}
+        <h2>Courses Indexes</h2>
+        <table border="1">
+            <tr>
+                {% for col in course_index[0].keys() %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in course_index %}
+                <tr>
+                    {% for col in row.values() %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No course index data found.</p>
+    {% endif %}
+
+    <!-- Enrollment Index -->
+    {% if enrollment_index %}
+        <h2>Enrollment Indexes</h2>
+        <table border="1">
+            <tr>
+                {% for col in enrollment_index[0].keys() %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in enrollment_index %}
+                <tr>
+                    {% for col in row.values() %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No enrollment index data found.</p>
+    {% endif %}
+
+    <!-- DDLs -->
+    {% if student_ddl %}
+        <h2>Students Table DDL</h2>
+        <pre>{{ student_ddl }}</pre>
+    {% endif %}
+
+    {% if course_ddl %}
+        <h2>Courses Table DDL</h2>
+        <pre>{{ course_ddl }}</pre>
+    {% endif %}
+
+    {% if enrollment_ddl %}
+        <h2>Enrollment Table DDL</h2>
+        <pre>{{ enrollment_ddl }}</pre>
+    {% endif %}
+
+</body>
+</html>

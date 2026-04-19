@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update & Delete</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Update & Delete Records</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h2>Update Student Email</h2>
+    <form method="post">
+        <input type="hidden" name="action" value="update_student_email">
+        <label>Student:</label>
+        <select name="student_id">
+            {% for id, name in students %}
+                <option value="{{ id }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <label>New Email:</label>
+        <input type="email" name="new_email" required>
+        <button type="submit">Update Email</button>
+    </form>
+
+    <h2>Delete Enrollment</h2>
+    <form method="post">
+        <input type="hidden" name="action" value="delete_enrollment">
+        <label>Enrollment:</label>
+        <select name="enroll_id">
+            {% for id, student, course in enrollments %}
+                <option value="{{ id }}">{{ student }} - {{ course }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Delete</button>
+    </form>
+
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Retrieve Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Retrieve Data</h1>
+
+    <form method="get">
+        <label>Select Table:</label>
+        <select name="table">
+            <option value="students" {% if table=='students' %}selected{% endif %}>Students</option>
+            <option value="courses" {% if table=='courses' %}selected{% endif %}>Courses</option>
+            <option value="enrollment" {% if table=='enrollment' %}selected{% endif %}>Enrollment</option>
+        </select>
+        <button type="submit">View</button>
+    </form>
+
+    <h2>Data: {{ table }}</h2>
+    <a href="{{ url_for('retrieve_data', table=table, download=1) }}">Download Excel</a>
+    <table>
+        <thead><tr>{% for col in columns %}<th>{{ col }}</th>{% endfor %}</tr></thead>
+        <tbody>
+        {% for row in rows %}
+            <tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+</body>
+</html>

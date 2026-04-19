@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Database Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">Student Database Management System</h1>
+        <p class="lead">Manage student data efficiently using MySQL and Flask</p>
+        
+        <div class="nav-card">
+            <a href="{{ url_for('create_table') }}" class="btn-block">1. Create Tables</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('insert_data') }}" class="btn-block">2. Insert Data</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('retrieve_data') }}" class="btn-block">3. Retrieve Data</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('update_delete') }}" class="btn-block">4. Update/Delete</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('aggregate_group') }}" class="btn-block">5. Aggregate & Grouping</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('joins_relationship') }}" class="btn-block">6. Joins & Relationships</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('constraints_indexing') }}" class="btn-block">7. Constraints & Indexing</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('high_scorers') }}" class="btn-block">8. High Scorers</a>
+        </div>
+        <div class="nav-card">
+            <a href="{{ url_for('top_5_students') }}" class="btn-block">9. Top 5 Students</a>
+        </div>
+    </div>
+</body>
+</html>

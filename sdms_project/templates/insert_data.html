@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Insert Enrollment Data</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <label>Student:</label>
+        <select name="student_id">
+            {% for id, name in students %}
+                <option value="{{ id }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <label>Course:</label>
+        <select name="course_id">
+            {% for id, name in courses %}
+                <option value="{{ id }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <label>Score:</label>
+        <input type="number" step="0.01" name="score" required>
+        <button type="submit">Add Enrollment</button>
+    </form>
+
+    <h2>Enrollments</h2>
+    <a href="{{ url_for('insert_data', download=1) }}">Download Excel</a>
+    <table>
+        <thead>
+            <tr>{% for col in columns %}<th>{{ col }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+            <tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+</body>
+</html>

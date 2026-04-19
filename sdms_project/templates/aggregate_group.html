@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aggregate & Grouping</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Aggregate & Grouping</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h2>Students per Department</h2>
+    <a href="{{ url_for('aggregate_group', download=1) }}">Download Excel</a>
+    <table>
+        <thead><tr><th>Department</th><th>Number of Students</th></tr></thead>
+        <tbody>
+        {% for dept, count in dept_counts %}
+            <tr><td>{{ dept }}</td><td>{{ count }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Average Score per Student</h2>
+    <table>
+        <thead><tr><th>Student</th><th>Average Score</th></tr></thead>
+        <tbody>
+        {% for student, avg in avg_scores %}
+            <tr><td>{{ student }}</td><td>{{ avg }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Highest & Lowest Score</h2>
+    <p>Highest: {{ high_low[0] }}, Lowest: {{ high_low[1] }}</p>
+
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+</body>
+</html>
