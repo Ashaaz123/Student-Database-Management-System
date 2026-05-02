@@ -15,13 +15,28 @@ interface.
 -   pandas, openpyxl
 
 ## Project Structure
-
-SDMS_Project/ ├── app.py ├── requirements.txt ├── utils/ │ └──
-export_excel.py ├── templates/ │ ├── home.html │ ├── create_table.html │
-├── insert_data.html │ ├── retrieve_data.html │ ├── update_delete.html │
-├── aggregate_group.html │ ├── joins_relationships.html │ └──
-constraints_indexing.html ├── static/ │ └── style.css
-
+```
+SDMS_Project/
+│
+├── app.py
+├── requirements.txt
+│
+├── utils/
+│   └── export_excel.py
+│
+├── templates/
+│   ├── home.html
+│   ├── create_table.html
+│   ├── insert_data.html
+│   ├── retrieve_data.html
+│   ├── update_delete.html
+│   ├── aggregate_group.html
+│   ├── joins_relationships.html
+│   └── constraints_indexing.html
+│
+├── static/
+│   └── style.css
+```
 ## Setup Instructions
 
 1.  Install dependencies: pip install -r requirements.txt
